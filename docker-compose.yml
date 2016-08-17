@@ -1,6 +1,4 @@
 apache:
-    #image: icclabcna/zurmo_apache
-    #restart: always
     image: ba/zurmo_apache
     ports: 
         - "80:80"
@@ -12,25 +10,7 @@ apache:
         - mysql:db
 
 application:
-    #image: icclabcna/zurmo_application
     image: ba/zurmo_app
-
-    #config:
-    #    image: icclabcna/zurmo_config
-
-    #mysql:
-    #    image: mysql:5.7
-    #    environment:
-    #        MYSQL_ROOT_PASSWORD: 123
-    #        MYSQL_DATABASE: zurmo
-    #        MYSQL_USER: zurmo
-    #        MYSQL_PASSWORD: zurmo
 
 mysql:
     image: icclabcna/zurmo_mysql
-
-#etcd:
-#    image: quay.io/coreos/etcd
-#    ports:
-#        - "4001:4001"
-#    command: etcd -name etcd0 -advertise-client-urls http://${HostIP}:2379,http://${HostIP}:4001 -listen-client-urls http://0.0.0.0:2379,http://0.0.0.0:4001 -initial-advertise-peer-urls http://${HostIP}:2380 -listen-peer-urls http://0.0.0.0:2380 -initial-cluster-token etcd-cluster-1 -initial-cluster etcd0=http://${HostIP}:2380 -initial-cluster-state new

@@ -12,5 +12,15 @@ apache:
 application:
     image: ba/zurmo_app
 
+backuper:
+    image: ba/mysql_backuper
+    volumes:
+        - /var/backups:/var/backups
+    environment:
+        CRON_SCHEDULE: "0 1 * * *"
+        DATABASE: zurmo
+    links:
+        - mysql
+
 mysql:
     image: icclabcna/zurmo_mysql
